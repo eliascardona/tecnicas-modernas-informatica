@@ -5,19 +5,21 @@
 #define POSIBILIDADES 27
 
 void pintarEncabezado();
+void pintarSaltoDeLinea();
 void pintarSaltoDeLineaDoble();
 
 int main()
 {
     pintarEncabezado();
 
-    int peso;
+    int pesoBuscado;
     printf("Ingrese el peso a buscar: ");
-    scanf("%d", &peso);
+    scanf("%d", &pesoBuscado);
 
-    int cont=0;
+    int peso, cont=0;
     int cadena[N];
 
+    printf(" Cadena | Peso\n");
     for (int i = 0; i < N; i++) {
         cadena[i] = i;
 
@@ -26,10 +28,13 @@ int main()
 
             for (int k = 0; k < N; k++) {
                 cadena[k] = k;
-                printf("%d %d %d \n", i, j, k);
-
-                if (i+j+k == peso)
+                peso = i+j+k;
+                printf("  %d %d %d\t   %d   ", i, j, k, peso);
+                if (peso == pesoBuscado) {
                     cont++;
+                    printf("*");
+                }
+                pintarSaltoDeLinea();
 
             }
         }
@@ -48,6 +53,11 @@ void pintarEncabezado() {
     printf("ASIGNATURA:  TEORIA DE TECNICAS MODERNAS DE INFORMATICA\n");
     printf("ALUMNO:      ELIAS EDUARDO CARDONA RODRIGUEZ \n\n");
     printf("Ejercicio 28 de agosto - Combinatoria \n\n");
+}
+
+
+void pintarSaltoDeLinea() {
+    printf("\n");
 }
 
 
